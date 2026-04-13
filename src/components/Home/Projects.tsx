@@ -4,6 +4,8 @@ import Link from "next/link";
 
 const Projects = () => {
   // const { data } = useGetProjects();
+  const fileUrl = "/rentyard-1.png";
+  const fileUrl2 = "/btapr-1.png";
 
   const fallbackProjects = [
     {
@@ -11,8 +13,7 @@ const Projects = () => {
       title: "RENTYARD",
       description:
         "Global property rental platform with multi-role support, parking management, and secure payments via Stripe & SSLCommerz. Featuring real-time Socket.IO notifications.",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuAIi8lP4v1MWoT3S_Vbr9AuhJnZbJ6h9jRuCsqsjak1BYWj40mCzeSGOlYxs4OL8gEsKHKeL8h62yrW0G0naJEdXYf1D5WgFRFevjJfZrO8RC-qO74v7Qf3TO53_hs8VAdx0znMV09FN_h3QLatMHNSef4UMU1c_vO051YJJfB-VpgBRMqJJd4jF72-MBCjxWw45QXMzZvxRSpM7vt8yNKKnoizBnINhlxqv4b21dFRKU2xuVWdGY4otXULpE3e87hllnVFkjkb34oo",
+      image: fileUrl,
       deployLink: "https://rentyard.com/",
       githubClientLink: "#",
       tech: [
@@ -32,8 +33,7 @@ const Projects = () => {
       title: "BTAPR PLATFORM",
       description:
         "Subscription-based institute and employee management system with automated renewal handling, financial tracking, and dynamic CMS features.",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuA5dZ3R4xlZhP9GoBORJlAR_1a6TSn0ONZdQkqupwhsOv2MeBK7X_CdaMWxKhJcYhMOadWlXYLoqQPn9Fj0fxOFU9hfA_jIyfeOE3f9Pn7qUZIS0c4I19Wl3q7Jq622sJ0jFZ04W_dVSZrTcscnf3msR_LhbsDIry0jy4uHMXRgT5RRv-lk7rWfmmSZ9Ha0TE8uJAGCfJDovtf9COrR3fI4-x8LgIbXVOyyL4zBSY2rA_wSxaODVYZIoaxQ7DwL0Bj2XsWlrDxKf9qO",
+      image: fileUrl2,
       deployLink: "https://btapr.org/",
       githubClientLink: "#",
       tech: [
@@ -51,14 +51,17 @@ const Projects = () => {
   const projects = fallbackProjects;
 
   return (
-    <section className="py-20 md:py-32 px-4 md:px-8 max-w-screen-2xl mx-auto" id="projects">
+    <section
+      className="py-20 md:py-32 px-4 md:px-8 max-w-screen-2xl mx-auto"
+      id="projects"
+    >
       <div className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div>
           <span className="label-md text-secondary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] md:text-xs font-bold">
             DEPLOYED_MODULES
           </span>
           <h2 className="text-3xl md:text-5xl text-white font-bold font-headline uppercase tracking-tight leading-none">
-            PROJECT_ARCHIVE_01
+            PROJECT_ARCHIVE
           </h2>
         </div>
         <div className="h-px flex-grow mx-4 md:mx-10 bg-white/5 hidden md:block" />

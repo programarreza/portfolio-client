@@ -138,91 +138,88 @@ const NetworkActivity = () => {
         <div className="glass-prism p-6 md:p-12 bg-slate-900/50 relative overflow-hidden mb-16 rounded-xl border border-white/5 shadow-2xl backdrop-blur-sm">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="flex-1 min-w-0">
-              {/* Scrollable Grid Container */}
-              <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-                <div className="min-w-[800px]">
-                  {/* Header row with months */}
-                  <div className="relative h-6 mb-2 ml-12">
-                    {getMonthLabels().map((label, i) => (
-                      <span
-                        key={i}
-                        className="absolute text-[9px] md:text-[10px] text-slate-500 font-headline uppercase tracking-[0.2em]"
-                        style={{ left: `${(label.index / 53) * 100}%` }}
-                      >
-                        {label.month}
-                      </span>
-                    ))}
-                  </div>
+              {/* Months header */}
+              <div className="relative h-5 mb-2 ml-10">
+                {getMonthLabels().map((label, i) => (
+                  <span
+                    key={i}
+                    className="absolute text-[9px] text-slate-500 font-headline uppercase tracking-[0.2em]"
+                    style={{ left: `${(label.index / 53) * 100}%` }}
+                  >
+                    {label.month}
+                  </span>
+                ))}
+              </div>
 
-                  <div className="flex gap-4 h-32">
-                    {/* Day labels aligned to 7 rows */}
-                    <div className="grid grid-rows-7 py-0.5 text-[9px] text-slate-500 font-headline uppercase tracking-tight opacity-50 w-8">
-                      <span className="row-start-2">Mon</span>
-                      <span className="row-start-4">Wed</span>
-                      <span className="row-start-6">Fri</span>
-                    </div>
+              <div className="flex gap-2 items-start w-full">
+                {/* Day-of-week labels — heights driven by the grid cell size */}
+                <div
+                  className="flex flex-col text-[8px] text-slate-500 font-headline uppercase opacity-50 shrink-0 w-8 justify-between"
+                  style={{ height: "calc((100% - 6 * 2px) / 1)" }}
+                >
+                  {["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map((d) => (
+                    <span key={d} className="leading-none">{d}</span>
+                  ))}
+                </div>
 
-                    {/* The Grid - Using arbitrary values for 53 columns and 7 rows */}
-                    <div className="flex-1 grid grid-cols-[repeat(53,1fr)] gap-1 h-full min-w-0">
-                      {isLoading
-                        ? Array.from({ length: 53 }).map((_, weekIdx) => (
-                            <div
-                              key={weekIdx}
-                              className="grid grid-rows-[repeat(7,1fr)] gap-1"
-                            >
-                              {Array.from({ length: 7 }).map((_, dayIdx) => (
-                                <div
-                                  key={dayIdx}
-                                  className="w-full h-full bg-white/5 rounded-sm animate-pulse"
-                                />
-                              ))}
-                            </div>
-                          ))
-                        : contributions?.map((week, weekIdx) => (
-                            <div
-                              key={weekIdx}
-                              className="grid grid-rows-[repeat(7,1fr)] gap-1"
-                            >
-                              {week.map((day, dayIdx) => (
-                                <motion.div
-                                  key={day.date}
-                                  initial={{ opacity: 0, scale: 0.5 }}
-                                  animate={{ opacity: 1, scale: 1 }}
-                                  transition={{
-                                    delay: weekIdx * 0.01 + dayIdx * 0.001,
-                                  }}
-                                  whileHover={{ scale: 1.5, zIndex: 10 }}
-                                  onMouseEnter={() => setHoveredDay(day)}
-                                  onMouseLeave={() => setHoveredDay(null)}
-                                  className={`w-full h-full rounded-sm ${getIntensityClass(day.contributionLevel)} transition-all duration-300 cursor-crosshair relative`}
-                                >
-                                  <AnimatePresence>
-                                    {hoveredDay?.date === day.date && (
-                                      <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                                        animate={{ opacity: 1, y: -45, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.8 }}
-                                        className="absolute left-1/2 -translate-x-1/2 z-50 pointer-events-none"
-                                      >
-                                        <div className="bg-slate-900/95 border border-white/10 px-4 py-2 rounded-lg shadow-2xl backdrop-blur-md whitespace-nowrap">
-                                          <p className="text-[10px] font-headline font-bold text-white tracking-wide">
-                                            {day.contributionCount} contributions
-                                            <span className="text-slate-500 font-normal ml-2 lowercase">
-                                              on {formatDate(day.date)}
-                                            </span>
-                                          </p>
-                                          {/* Arrow */}
-                                          <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-900/95" />
-                                        </div>
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
-                                </motion.div>
-                              ))}
-                            </div>
+                {/* Full-width CSS grid: 53 columns × 7 rows, square cells via aspect-ratio */}
+                <div
+                  className="flex-1 grid gap-[2px]"
+                  style={{ gridTemplateColumns: "repeat(53, 1fr)" }}
+                >
+                  {isLoading
+                    ? Array.from({ length: 53 }).map((_, weekIdx) => (
+                        <div
+                          key={weekIdx}
+                          className="grid gap-[2px]"
+                          style={{ gridTemplateRows: "repeat(7, 1fr)", aspectRatio: "1 / 7" }}
+                        >
+                          {Array.from({ length: 7 }).map((_, dayIdx) => (
+                            <div key={dayIdx} className="bg-white/5 rounded-sm animate-pulse" />
                           ))}
-                    </div>
-                  </div>
+                        </div>
+                      ))
+                    : contributions?.map((week, weekIdx) => (
+                        <div
+                          key={weekIdx}
+                          className="grid gap-[2px]"
+                          style={{ gridTemplateRows: "repeat(7, 1fr)", aspectRatio: "1 / 7" }}
+                        >
+                          {week.map((day) => (
+                            <motion.div
+                              key={day.date}
+                              initial={{ opacity: 0, scale: 0.5 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: weekIdx * 0.008 }}
+                              whileHover={{ scale: 1.6, zIndex: 10 }}
+                              onMouseEnter={() => setHoveredDay(day)}
+                              onMouseLeave={() => setHoveredDay(null)}
+                              className={`rounded-sm ${getIntensityClass(day.contributionLevel)} transition-all duration-300 cursor-crosshair relative`}
+                            >
+                              <AnimatePresence>
+                                {hoveredDay?.date === day.date && (
+                                  <motion.div
+                                    initial={{ opacity: 0, y: 4, scale: 0.8 }}
+                                    animate={{ opacity: 1, y: -40, scale: 1 }}
+                                    exit={{ opacity: 0, y: 4, scale: 0.8 }}
+                                    className="absolute left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+                                  >
+                                    <div className="bg-slate-900/95 border border-white/10 px-3 py-1.5 rounded-lg shadow-2xl backdrop-blur-md whitespace-nowrap">
+                                      <p className="text-[10px] font-headline font-bold text-white tracking-wide">
+                                        {day.contributionCount} contributions
+                                        <span className="text-slate-500 font-normal ml-2 lowercase">
+                                          on {formatDate(day.date)}
+                                        </span>
+                                      </p>
+                                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900/95" />
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </motion.div>
+                          ))}
+                        </div>
+                      ))}
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { FaLinkedinIn, FaFacebookF, FaTwitter } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -8,19 +8,21 @@ const Footer = () => {
           © 2024 VOLUMETRIC_DEV. ALL RIGHTS RESERVED.
         </div>
         <div className="flex gap-12">
-          <a
+          <Link
             className="font-headline text-[10px] uppercase tracking-[0.2em] text-slate-500 hover:text-cyan-400 hover:tracking-[0.3em] transition-all duration-500"
-            href="#"
+            href="https://github.com/programarreza"
+            target="_blank"
           >
             GitHub
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-headline text-[10px] uppercase tracking-[0.2em] text-slate-500 hover:text-cyan-400 hover:tracking-[0.3em] transition-all duration-500"
-            href="#"
+            href="https://www.linkedin.com/in/shafikul-islam11/"
+            target="_blank"
           >
             LinkedIn
-          </a>
-          <a
+          </Link>
+          {/* <a
             className="font-headline text-[10px] uppercase tracking-[0.2em] text-slate-500 hover:text-cyan-400 hover:tracking-[0.3em] transition-all duration-500"
             href="#"
           >
@@ -31,7 +33,7 @@ const Footer = () => {
             href="#"
           >
             Codepen
-          </a>
+          </a> */}
         </div>
         <div className="flex items-center gap-4 text-purple-500">
           <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
