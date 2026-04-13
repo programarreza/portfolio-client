@@ -34,7 +34,7 @@ const Projects = () => {
   const projects = fallbackProjects;
 
   return (
-    <section className="py-32 px-8 max-w-screen-2xl mx-auto" id="artifacts">
+    <section className="py-32 px-8 max-w-screen-2xl mx-auto" id="projects">
       <div className="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
         <div>
           <span className="label-md text-secondary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] font-bold">

@@ -1,5 +1,6 @@
 import About from "@/src/components/Home/About";
 
+import Contact from "@/src/components/Home/Contact";
 import Banner from "../../../components/Home/Banner";
 import NetworkActivity from "../../../components/Home/NetworkActivity";
 import Projects from "../../../components/Home/Projects";
@@ -15,7 +16,7 @@ const HomePage = () => {
       <NetworkActivity />
       <SystemManifest />
       <About />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   );
 };

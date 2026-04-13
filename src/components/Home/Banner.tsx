@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
-      id="nexus"
+      id="home"
     >
       {/* 3D Geometric Background Decoration */}
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40">
@@ -53,14 +53,14 @@ const Banner = () => {
           two-dimensional constraints.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
+        {/* <div className="flex flex-col md:flex-row gap-6 justify-center">
           <button className="px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold tracking-widest uppercase hover:shadow-[0_0_30px_rgba(0,238,252,0.4)] transition-all active:scale-95 duration-200 font-headline text-sm">
             INITIATE SEQUENCE
           </button>
           <button className="px-10 py-4 border border-secondary/40 text-secondary font-bold tracking-widest uppercase hover:bg-secondary/5 transition-all active:scale-95 duration-200 font-headline text-sm">
             VIEW RECORDS
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Floating Tech Orbs (Parallax Elements) */}

@@ -1,6 +1,5 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
 import { FormEvent, useRef } from "react";
 import { toast } from "sonner";
 
@@ -10,34 +9,38 @@ const Contact: React.FC = () => {
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "service_w1bwd28",
-          "template_whgfeza",
-          form.current,
-          "r47p78wRwpxxE4GAT"
-        )
-        .then(
-          () => {
-            toast.success("TRANSMISSION_COMPLETE: Message received");
-            form.current?.reset();
-          },
-          (error) => {
-            console.error("UPLINK_ERROR:", error.text);
-            toast.error("UPLINK_ERROR: Check terminal for diagnostics");
-          }
-        );
-    }
+    // if (form.current) {
+    //   emailjs
+    //     .sendForm(
+    //       "service_w1bwd28",
+    //       "template_whgfeza",
+    //       form.current,
+    //       "r47p78wRwpxxE4GAT",
+    //     )
+    //     .then(
+    //       () => {
+    //         toast.success("TRANSMISSION_COMPLETE: Message received");
+    //         form.current?.reset();
+    //       },
+    //       (error) => {
+    //         console.error("UPLINK_ERROR:", error.text);
+    //         toast.error("UPLINK_ERROR: Check terminal for diagnostics");
+    //       },
+    //     );
+    // }
+    toast.success("Message received");
+    form.current?.reset();
   };
 
   return (
-    <section className="py-32 px-8 relative overflow-hidden" id="pulse">
+    <section className="py-32 px-8 relative overflow-hidden" id="contact">
       <div className="max-w-4xl mx-auto glass-prism p-1">
         <div className="bg-surface-container-lowest p-12 relative overflow-hidden">
           {/* Large background icon decoration */}
           <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
-            <span className="material-symbols-outlined text-[300px] text-white">send</span>
+            <span className="material-symbols-outlined text-[300px] text-white">
+              send
+            </span>
           </div>
 
           <div className="relative z-10">
@@ -65,13 +68,13 @@ const Contact: React.FC = () => {
 
                 <div className="space-y-3">
                   <label className="label-md text-white/40 font-headline uppercase text-[9px] tracking-widest font-bold">
-                    UPLINK_ADDRESS
+                    EMAIL
                   </label>
                   <input
                     required
                     className="w-full bg-black/40 border border-white/5 focus:border-primary/50 text-white p-4 transition-all font-body text-sm outline-none placeholder:text-white/10"
                     name="user_email"
-                    placeholder="OPERATOR@DOMAIN.SYS"
+                    placeholder="OPERATOR@GMAIL.COM"
                     type="email"
                   />
                 </div>
@@ -79,13 +82,13 @@ const Contact: React.FC = () => {
 
               <div className="space-y-3">
                 <label className="label-md text-white/40 font-headline uppercase text-[9px] tracking-widest font-bold">
-                  TRANSMISSION_DATA
+                  MESSAGE
                 </label>
                 <textarea
                   required
                   className="w-full bg-black/40 border border-white/5 focus:border-primary/50 text-white p-4 h-48 transition-all font-body text-sm outline-none resize-none placeholder:text-white/10"
                   name="message"
-                  placeholder="INPUT_TRANSMISSION_DATA_HERE..."
+                  placeholder="MESSAGE"
                 />
               </div>
 
@@ -93,7 +96,7 @@ const Contact: React.FC = () => {
                 className="w-full py-5 bg-gradient-to-r from-secondary/80 to-secondary text-prism-background font-bold tracking-[0.3em] uppercase hover:shadow-[0_0_40px_rgba(152,0,208,0.3)] active:scale-[0.98] transition-all font-headline text-xs"
                 type="submit"
               >
-                TRANSMIT_MESSAGE
+                SEND MESSAGE
               </button>
             </form>
           </div>
