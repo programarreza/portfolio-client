@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-prism-background text-on-prism-background;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    background-image: radial-gradient(rgba(143, 245, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+.glass-prism {
+  background: rgba(36, 37, 45, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(143, 245, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-prism::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(143, 245, 255, 0.1), transparent 30%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.isometric-card {
+  transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+  transition: transform 0.4s ease-out;
+}
+
+.isometric-card:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-10px);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(0, 238, 252, 0.2);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(152, 0, 208, 0.2);
+}
+
+.volumetric-icon {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.volumetric-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 0 15px currentColor;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(143, 245, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.volumetric-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/20;
+}

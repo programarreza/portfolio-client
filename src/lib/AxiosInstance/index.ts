@@ -9,8 +9,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  (config) => {
-    const cookieStore = cookies(); // Access server-side cookies
+  async (config) => {
+    const cookieStore = await cookies(); // Access server-side cookies
     const accessToken = cookieStore.get("accessToken")?.value;
 
     if (accessToken) {
@@ -32,7 +32,8 @@ axiosInstance.interceptors.response.use(
       const res = await getNewAccessToken();
       const newAccessToken = res.data.accessToken;
 
-      cookies().set("accessToken", newAccessToken); // Update accessToken on server-side
+      const cookieStore = await cookies();
+      cookieStore.set("accessToken", newAccessToken); // Update accessToken on server-side
       config.headers.Authorization = newAccessToken; // No 'Bearer', just the token
 
       return axiosInstance(config); // Retry the request with the new token

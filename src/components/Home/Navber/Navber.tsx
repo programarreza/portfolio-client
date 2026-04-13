@@ -43,44 +43,51 @@ export const Navbar = () => {
   }, [scrollDirection]);
 
   return (
-    <div
-      className={`text-white fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out ${
-        scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
-      }`}
-      style={{ backdropFilter: "blur(10px)" }}
-    >
-      <NextUINavbar className="bg-transparent" maxWidth="xl" position="sticky">
-        <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-          <NavbarBrand as="li" className="gap-3 max-w-fit">
-            <NextLink
-              className="flex justify-start items-center gap-1"
-              href="/"
-            >
-              <span className=""> Portfolio</span>
-            </NextLink>
-          </NavbarBrand>
-        </NavbarContent>
-        <NavbarBrand as="li" className=" max-w-fit">
-          {/* content-2 */}
-          <div className="navbar-end  flex items-center gap-8 font-medium text-lg ">
-            <ul className="hidden lg:flex gap-4 justify-start ml-2">
-              <NavbarLinks />
-
-              <Link href="/dashboard">
-                {user ? (
-                  <div className="flex justify-center items-center gap-2">
-                    <NavbarDropdown />
-                  </div>
-                ) : (
-                  <Link href={"/login"}>
-                    <p className="mt-2 cursor-pointer">login</p>
-                  </Link>
-                )}
-              </Link>
-            </ul>
+    <header className="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(0,238,252,0.15)]">
+      <div className="flex justify-between items-center px-8 h-20 max-w-screen-2xl mx-auto">
+        <NextLink href="/">
+          <div className="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 font-headline">
+            NEON_PRISM
           </div>
-        </NavbarBrand>
-      </NextUINavbar>
-    </div>
+        </NextLink>
+        <nav className="hidden md:flex items-center gap-10">
+          <Link
+            className="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-headline tracking-tighter"
+            href="#nexus"
+          >
+            Nexus
+          </Link>
+          <Link
+            className="text-slate-400 hover:text-white transition-colors font-headline tracking-tighter"
+            href="#artifacts"
+          >
+            Artifacts
+          </Link>
+          <Link
+            className="text-slate-400 hover:text-white transition-colors font-headline tracking-tighter"
+            href="#terminal"
+          >
+            Terminal
+          </Link>
+          <Link
+            className="text-slate-400 hover:text-white transition-colors font-headline tracking-tighter"
+            href="#pulse"
+          >
+            Pulse
+          </Link>
+        </nav>
+        <div className="flex items-center gap-4">
+          <button className="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded-full transition-all">
+            account_tree
+          </button>
+          <button className="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded-full transition-all">
+            deployed_code
+          </button>
+          <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed px-6 py-2 font-bold tracking-tighter active:scale-95 duration-200">
+            Connect
+          </button>
+        </div>
+      </div>
+    </header>
   );
 };

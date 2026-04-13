@@ -1,97 +1,83 @@
 "use client";
 
-import { Tooltip } from "@nextui-org/tooltip";
-import Image from "next/image";
-import Link from "next/link";
-import { FaGithubSquare } from "react-icons/fa";
-import { FaSquareGithub } from "react-icons/fa6";
-import { IoMdOpen } from "react-icons/io";
-
 import { useGetProjects } from "@/src/hooks/project.hook";
+import Link from "next/link";
 
 const Projects = () => {
   const { data } = useGetProjects();
   const projects = data?.data;
 
   return (
-    <div className=" bg-[#081b29] pb-12 text-white " id="projects">
-      <h2 className="text-white pb-12 text-4xl text-center pt-12  ">
-        Latest Projects
-      </h2>
+    <section className="py-32 px-8 max-w-screen-2xl mx-auto" id="artifacts">
+      <div className="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+        <div>
+          <span className="label-md text-secondary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] font-bold">
+            DEPLOYED_MODULES
+          </span>
+          <h2 className="text-4xl md:text-5xl text-white font-bold font-headline uppercase tracking-tight">
+            PROJECT_ARCHIVE_01
+          </h2>
+        </div>
+        <div className="h-px flex-grow mx-10 bg-white/5 hidden md:block" />
+        <Link
+          href="/projects"
+          className="label-md text-primary-dim flex items-center gap-2 hover:gap-4 transition-all font-headline uppercase text-[10px] font-bold"
+        >
+          FULL REPOSITORY{" "}
+          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+        </Link>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects?.map((project:any) => (
-          <Link key={project?._id} href={`/projects/${project?._id}`}>
-            <div className="group  relative items-center justify-center overflow-hidden  hover:shadow-xl hover:shadow-black/30 transition-shadow">
-              <div className=" border">
-                <Image
-                  alt="project image"
-                  className="h-[300px] w-full object-cover group-hover:rotate-3 group-hover:scale-125 translate-transform duration-500"
-                  height={300}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {projects?.map((project: any, index: number) => (
+          <div
+            key={project?._id}
+            className="glass-prism isometric-card p-1 group"
+          >
+            <div className="bg-surface-container-highest/40 p-6 h-full flex flex-col">
+              <span className="label-md text-[8px] text-white/40 font-headline uppercase tracking-[0.3em] mb-4 block">
+                PRJ_MOD_0{index + 1}
+              </span>
+              
+              <div className="aspect-video mb-6 overflow-hidden relative border border-white/5 bg-slate-800">
+                <img
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   src={project?.image}
-                  width={300}
+                  alt={project?.title}
+                />
+                <div
+                  className={`absolute inset-0 ${index % 2 === 0 ? "bg-primary/30" : "bg-secondary/30"} mix-blend-overlay`}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70" />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-0 text-center translate-y-[95%]  group-hover:translate-y-0 translate-all duration-500 ">
-                <h1 className="text-xl font-bold text-white">
-                  {project?.title?.length > 80
-                    ? project?.title?.slice(0, 80) + "."
-                    : project?.title}
-                </h1>
-                <p className="text-white mt-3 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {project?.description?.length > 80
-                    ? project?.description?.slice(0, 80) + "."
-                    : project?.description}
-                </p>
-                <div />
-                <div className="flex justify-center space-x-3">
-                  <Link
-                    className=""
-                    href={project?.deployLink}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Tooltip color="default" content="Live link">
-                      <div className="rounded-full -mt-1  text-sm capitalize text-white">
-                        <IoMdOpen size={45} />
-                      </div>
-                    </Tooltip>
-                  </Link>
+              <h3 className="text-xl text-white mb-2 font-bold uppercase tracking-tight font-headline">
+                {project?.title}
+              </h3>
+              <p className="text-on-surface-variant mb-6 text-xs font-body leading-relaxed line-clamp-2 opacity-60">
+                {project?.description}
+              </p>
 
-                  <Link
-                    className=""
-                    href={project?.githubClientLink}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Tooltip color="default" content="Github client link">
-                      <div className="rounded-full  text-sm capitalize text-white">
-                        <FaSquareGithub size={40} />
-                      </div>
-                    </Tooltip>
-                  </Link>
-
-                  <Link
-                    className=""
-                    href={project?.githubServerLink}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Tooltip color="default" content="Github server link">
-                      <div className="rounded-full  text-sm capitalize text-white">
-                        <FaGithubSquare size={40} />
-                      </div>
-                    </Tooltip>
-                  </Link>
-                </div>
+              <div className="mt-auto flex gap-4">
+                <Link
+                  href={project?.deployLink}
+                  target="_blank"
+                  className="flex-1 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-center text-[9px] font-bold tracking-[0.2em] uppercase transition-all font-headline"
+                >
+                  ACCESS_LIVE
+                </Link>
+                <Link
+                  href={project?.githubClientLink}
+                  target="_blank"
+                  className="flex-1 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-center text-[9px] font-bold tracking-[0.2em] uppercase transition-all font-headline"
+                >
+                  VIEW_SOURCE
+                </Link>
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,13 +1,15 @@
 "use client";
 
+import React, { use } from "react";
 import Image from "next/image";
 import { ImSpinner6 } from "react-icons/im";
 
 import Container from "@/src/components/Container";
 import { useGetSingleProject } from "@/src/hooks/project.hook";
 
-const ProjectDetailsPage = ({ params }: { params: any }) => {
-  const { data, isLoading } = useGetSingleProject(params?.details || "");
+const ProjectDetailsPage = ({ params }: { params: Promise<{ details: string }> }) => {
+  const resolvedParams = use(params);
+  const { data, isLoading } = useGetSingleProject(resolvedParams?.details || "");
   const project = data?.data;
 
   return (

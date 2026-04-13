@@ -1,13 +1,15 @@
 "use client";
 
+import React, { use } from "react";
 import Image from "next/image";
 import { ImSpinner6 } from "react-icons/im";
 
 import Container from "@/src/components/Container";
 import { useGetSingleBlogs } from "@/src/hooks/blog.hook";
 
-const BlogDetailsPage = ({ params }: { params: any }) => {
-  const { data, isLoading } = useGetSingleBlogs(params?.details || "");
+const BlogDetailsPage = ({ params }: { params: Promise<{ details: string }> }) => {
+  const resolvedParams = use(params);
+  const { data, isLoading } = useGetSingleBlogs(resolvedParams?.details || "");
   const blog = data?.data;
 
   return (
