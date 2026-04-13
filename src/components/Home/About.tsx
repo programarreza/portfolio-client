@@ -11,8 +11,8 @@ const About = () => {
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-screen-xl mx-auto px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -45,11 +45,11 @@ const About = () => {
             <span className="label-md text-cyan-400 tracking-[0.4em] block mb-4 font-headline uppercase text-xs font-bold">
               BIOS_MANIFEST
             </span>
-            <h2 className="text-4xl md:text-5xl text-white font-bold mb-8 font-headline uppercase tracking-tight">
+            <h2 className="text-3xl md:text-5xl text-white font-bold mb-8 font-headline uppercase tracking-tight leading-tight">
               About <span className="text-purple-400">Me</span>
             </h2>
 
-            <div className="space-y-6 text-sm md:text-base text-slate-400 font-body leading-loose tracking-wide opacity-80">
+            <div className="space-y-6 text-sm md:text-base text-slate-400 font-body leading-relaxed md:leading-loose tracking-wide opacity-80">
               <p>
                 As a passionate{" "}
                 <span className="text-white font-medium">

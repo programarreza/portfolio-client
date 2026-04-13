@@ -33,12 +33,12 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-12 relative overflow-hidden" id="contact">
-      <div className="max-w-4xl mx-auto glass-prism p-1">
-        <div className="bg-surface-container-lowest p-12 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden" id="contact">
+      <div className="max-w-4xl mx-auto glass-prism p-0.5 md:p-1 px-4 md:px-0">
+        <div className="bg-surface-container-lowest p-6 md:p-12 relative overflow-hidden">
           {/* Large background icon decoration */}
-          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
-            <span className="material-symbols-outlined text-[300px] text-white">
+          <div className="absolute top-0 right-0 p-8 md:p-12 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+            <span className="material-symbols-outlined text-[150px] md:text-[300px] text-white">
               send
             </span>
           </div>
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
             <span className="label-md text-primary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] font-bold">
               COMMUNICATIONS_PORTAL
             </span>
-            <h2 className="text-4xl md:text-5xl text-white font-bold mb-12 font-headline uppercase tracking-tight">
+            <h2 className="text-3xl md:text-5xl text-white font-bold mb-8 md:mb-12 font-headline uppercase tracking-tight">
               KICK_A_<span className="text-secondary">FREQUENCY</span>
             </h2>
 

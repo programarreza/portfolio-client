@@ -16,11 +16,11 @@ const Banner = () => {
       </div>
 
       <div className="relative z-10 text-center px-6">
-        <span className="label-md text-primary tracking-[0.4em] block opacity-80 mb-2 font-headline uppercase text-xs font-bold">
+        <span className="label-md text-primary tracking-[0.4em] block opacity-80 mb-2 font-headline uppercase text-[10px] md:text-xs font-bold">
           MD SHAFIKUL ISLAM // ARCHITECTING THE FUTURE
         </span>
 
-        <div className="relative w-72 h-72 mx-auto mb-12">
+        <div className="relative w-60 h-60 md:w-72 md:h-72 mx-auto mb-12">
           {/* Square glass background */}
           <div className="absolute inset-0 rounded-full glass-prism glow-cyan animate-pulse" />
 
@@ -32,14 +32,14 @@ const Banner = () => {
             />
           </div>
 
-          <div className="absolute bottom-12 -right-12 w-10 h-10 rounded-full glass-prism glow-purple flex items-center justify-center">
-            <span className="material-symbols-outlined text-secondary text-lg">
+          <div className="absolute bottom-10 -right-6 md:bottom-12 md:-right-12 w-8 h-8 md:w-10 md:h-10 rounded-full glass-prism glow-purple flex items-center justify-center">
+            <span className="material-symbols-outlined text-secondary text-base md:text-lg">
               verified
             </span>
           </div>
         </div>
 
-        <h1 className="text-4xl md:text-6xl text-white font-bold mb-6 max-w-4xl mx-auto leading-none font-headline uppercase tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl text-white font-bold mb-6 max-w-4xl mx-auto leading-[1.1] font-headline uppercase tracking-tight">
           ENGINEERING{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-secondary">
             VOLUMETRIC
@@ -47,29 +47,29 @@ const Banner = () => {
           DIGITAL ARTIFACTS
         </h1>
 
-        <p className="text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mb-10 font-body leading-relaxed opacity-70">
+        <p className="text-xs sm:text-sm md:text-base text-on-surface-variant max-w-2xl mx-auto mb-10 font-body leading-relaxed opacity-70 px-4">
           Full-stack developer focused on creating immersive, high-performance
           web environments like Rentyard and BTAPR that transcend
           two-dimensional constraints.
         </p>
 
-        {/* <div className="flex flex-col md:flex-row gap-6 justify-center">
-          <button className="px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold tracking-widest uppercase hover:shadow-[0_0_30px_rgba(0,238,252,0.4)] transition-all active:scale-95 duration-200 font-headline text-sm">
-            INITIATE SEQUENCE
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
+          <button className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold tracking-widest uppercase hover:shadow-[0_0_30px_rgba(0,238,252,0.4)] transition-all active:scale-95 duration-200 font-headline text-xs">
+            INITIATE_SEQUENCE
           </button>
-          <button className="px-10 py-4 border border-secondary/40 text-secondary font-bold tracking-widest uppercase hover:bg-secondary/5 transition-all active:scale-95 duration-200 font-headline text-sm">
-            VIEW RECORDS
+          <button className="w-full sm:w-auto px-10 py-4 border border-secondary/40 text-secondary font-bold tracking-widest uppercase hover:bg-secondary/5 transition-all active:scale-95 duration-200 font-headline text-xs">
+            VIEW_RECORDS
           </button>
-        </div> */}
+        </div>
       </div>
 
       {/* Floating Tech Orbs (Parallax Elements) */}
       <motion.div
         animate={{ y: [0, -20, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-52 left-10 w-24 h-24 rounded-full glass-prism glow-cyan flex items-center justify-center opacity-80"
+        className="absolute top-40 left-4 md:top-52 md:left-10 w-16 h-16 md:w-24 md:h-24 rounded-full glass-prism glow-cyan flex items-center justify-center opacity-40 md:opacity-80"
       >
-        <span className="material-symbols-outlined text-primary text-3xl">
+        <span className="material-symbols-outlined text-primary text-xl md:text-3xl">
           terminal
         </span>
       </motion.div>
@@ -77,9 +77,9 @@ const Banner = () => {
       <motion.div
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 right-20 w-32 h-32 rounded-full glass-prism glow-purple flex items-center justify-center opacity-80"
+        className="absolute bottom-20 right-4 md:bottom-1/4 md:right-20 w-24 h-24 md:w-32 md:h-32 rounded-full glass-prism glow-purple flex items-center justify-center opacity-40 md:opacity-80"
       >
-        <span className="material-symbols-outlined text-secondary text-4xl">
+        <span className="material-symbols-outlined text-secondary text-2xl md:text-4xl">
           database
         </span>
       </motion.div>
@@ -87,9 +87,9 @@ const Banner = () => {
       <motion.div
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-10 w-16 h-16 rounded-full glass-prism glow-cyan flex items-center justify-center opacity-80"
+        className="absolute top-1/4 right-4 md:top-1/3 md:right-10 w-12 h-12 md:w-16 md:h-16 rounded-full glass-prism glow-cyan hidden sm:flex items-center justify-center opacity-40 md:opacity-80"
       >
-        <span className="material-symbols-outlined text-primary-dim text-xl">
+        <span className="material-symbols-outlined text-primary-dim text-lg md:text-xl">
           cloud_sync
         </span>
       </motion.div>

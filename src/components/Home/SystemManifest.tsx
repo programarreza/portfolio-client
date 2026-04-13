@@ -29,36 +29,36 @@ const SystemManifest = () => {
   ];
 
   return (
-    <section className="py-32 px-8 relative overflow-hidden" id="system-manifest">
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden" id="system-manifest">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         {/* Left Side: Manifest Lists */}
         <div>
-          <span className="label-md text-secondary tracking-[0.3em] block mb-4 font-headline uppercase text-xs font-bold">
+          <span className="label-md text-secondary tracking-[0.3em] block mb-4 font-headline uppercase text-[10px] md:text-xs font-bold">
             SYSTEM_CAPABILITIES
           </span>
-          <h2 className="text-4xl md:text-5xl text-white font-bold mb-8 font-headline uppercase tracking-tight">
-            TECHNOLOGICAL_MANIFEST
+          <h2 className="text-3xl md:text-5xl text-white font-bold mb-8 font-headline uppercase tracking-tight leading-loose">
+            SYSTEM_ARCHITECTURE
           </h2>
-          <p className="text-sm text-on-surface-variant mb-12 max-w-lg font-body opacity-70 leading-relaxed">
+          <p className="text-xs md:text-sm text-on-surface-variant mb-12 max-w-lg font-body opacity-70 leading-relaxed">
             Specialized in building reactive, scalable architectures that leverage the latest tools
             in cloud computing, AI integration, and high-performance frontend engineering.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {categories.map((cat) => (
               <div key={cat.title} className="space-y-2 border-l-2 border-white/10 pl-4 py-2 hover:border-primary transition-colors">
-                <h3 className="text-xs text-white font-bold font-headline tracking-widest">{cat.title}</h3>
-                <p className="text-[10px] text-on-surface-variant font-headline uppercase tracking-wider">{cat.items}</p>
+                <h3 className="text-[10px] md:text-xs text-white font-bold font-headline tracking-widest">{cat.title}</h3>
+                <p className="text-[9px] md:text-[10px] text-on-surface-variant font-headline uppercase tracking-wider">{cat.items}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Right Side: Isometric Grid */}
-        <div className="relative h-[500px] flex items-center justify-center">
+        <div className="relative h-[400px] md:h-[500px] flex items-center justify-center mt-12 lg:mt-0 overflow-hidden">
           <div 
-            className="grid grid-cols-3 gap-4"
+            className="grid grid-cols-3 gap-3 md:gap-4 scale-[0.65] sm:scale-90 md:scale-100"
             style={{ 
               transform: "perspective(1000px) rotateX(50deg) rotateZ(-45deg)",
               transformStyle: "preserve-3d"
@@ -69,9 +69,9 @@ const SystemManifest = () => {
                 key={idx}
                 initial={{ translateZ: 0 }}
                 whileHover={{ translateZ: 50, transition: { duration: 0.2 } }}
-                className="w-24 h-24 glass-prism flex items-center justify-center volumetric-icon"
+                className="w-20 h-20 md:w-24 md:h-24 glass-prism flex items-center justify-center volumetric-icon"
               >
-                <span className="material-symbols-outlined text-primary text-3xl">
+                <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">
                   {icon}
                 </span>
               </motion.div>
