@@ -32,7 +32,7 @@ const SkillSection = () => {
                 { icon: "code_blocks", label: "TS" },
                 { icon: "format_paint", label: "Tailwind" },
                 { icon: "account_tree", label: "Redux" },
-                { icon: "hub", label: "Context" },
+                { icon: "dynamic_form", label: "Hook Form" },
               ].map((tech) => (
                 <div
                   key={tech.label}
@@ -62,8 +62,9 @@ const SkillSection = () => {
                 { icon: "query_stats", label: "GraphQL" },
                 { icon: "memory", label: "Redis" },
                 { icon: "database", label: "MongoDB" },
-                { icon: "storage", label: "Postgres" },
                 { icon: "link", label: "Prisma" },
+                { icon: "mediation", label: "Mongoose" },
+                { icon: "storage", label: "Postgres" },
               ].map((tech) => (
                 <div
                   key={tech.label}

@@ -1,12 +1,7 @@
-import Container from "@/src/components/Container";
 import { ReactNode } from "react";
 
 const CommonLayout = ({ children }: { children: ReactNode }) => {
-  return (
-    <div>
-      <Container>{children}</Container>
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default CommonLayout;

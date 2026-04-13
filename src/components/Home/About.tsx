@@ -1,42 +1,107 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className=" py-24 bg-[#081b29] text-white " id="about">
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-center">
-        <div className="flex-1 mx-auto">
-          <Image
-            alt="Profile"
-            className="w-3/6 lg:w-3/6 mx-auto rounded-full border "
-            height={200}
-            src="https://i.postimg.cc/j2q9MBrd/no-bg11-removebg-preview.png"
-            width={200}
-          />
-        </div>
+    <section
+      className="py-24 bg-[#0A0A0B] text-white relative overflow-hidden"
+      id="about"
+    >
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="mb-12 md:mb-0 p-5 pt-0 flex-1">
-          <h2 className="text-white pb-5 text-4xl text-center  lg:mb-12 flex">
-            About Me
-          </h2>
+      <div className="max-w-screen-xl mx-auto px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex-1 relative group"
+          >
+            <div className="relative w-full aspect-square max-w-md mx-auto">
+              {/* Technical Frame */}
+              <div className="absolute inset-0 border border-cyan-500/20 rotate-6 rounded-[2rem] transition-transform group-hover:rotate-12 duration-500" />
+              <div className="absolute inset-0 border border-purple-500/10 -rotate-3 rounded-[2.5rem] transition-transform group-hover:-rotate-6 duration-500" />
 
-          <p className="mb-6">
-            As a Full Stack developer, I specialize in Next.js, Redux, React,
-            Mongoose, Node, Express.js, Postgresql, Prisma, Nest.js and Docker
-            Crafting robust and dynamic applications is my forte. From the
-            database to the user interface, I am here to streamline the process,
-            optimize performance, and deliver an exceptional digital experience.
-          </p>
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden glass-prism p-1">
+                <div className="w-full h-full bg-slate-900 overflow-hidden rounded-[1.8rem]">
+                  <img
+                    alt="Md Shafikul Islam Profile"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida/ADBb0ug-LuiRA70y5KTdJ9Mv0WsjwKqveO3Lq14uyQ5SWPZk9p2OXkDIWEDaSYqvOClX9CJMJbOgwmT5uZ_jaf0i7y0EyeJsXB2H5m4ojBDjyG3bKvniRHhemi9DF3TUVgfCZft_RFz9mcpF23b3gDrOdkZLLdp0TIYpw-YUJG5SGuuJELnrjUuxG7H7BPZPTGKTR8ITB7znWHRhTheeFOwxai7sTYxUdl1AG10MteWtJi-IkbY-FmWPlHqQyRz9EVqsaInKoALQgDE1STw"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-          <p>
-            Reliability and Structure: Punctuality is not just a habit; its a
-            reflection of my commitment. With a judging trait, I bring structure
-            and order to both my personal and professional life. You can rely on
-            me to meet deadlines, honor commitments, and contribute to a
-            well-organized environment.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex-1"
+          >
+            <span className="label-md text-cyan-400 tracking-[0.4em] block mb-4 font-headline uppercase text-xs font-bold">
+              BIOS_MANIFEST
+            </span>
+            <h2 className="text-4xl md:text-5xl text-white font-bold mb-8 font-headline uppercase tracking-tight">
+              About <span className="text-purple-400">Me</span>
+            </h2>
+
+            <div className="space-y-6 text-sm md:text-base text-slate-400 font-body leading-loose tracking-wide opacity-80">
+              <p>
+                As a passionate{" "}
+                <span className="text-white font-medium">
+                  Full Stack Developer
+                </span>
+                , I specialize in architecting robust digital environments using{" "}
+                <span className="text-cyan-400">
+                  Next.js, TypeScript, Node.js, and GraphQL
+                </span>
+                . My expertise lies in crafting scalable, high-performance
+                applications that bridge the gap between complex backend logic
+                and seamless user experiences.
+              </p>
+              <p>
+                From building decentralized property management systems to
+                subscription-based financial platforms, I thrive on turning
+                intricate requirements into modular, maintainable code. I focus
+                on optimizing performance, ensuring strict type safety, and
+                delivering professional digital artifacts that transcend
+                standard expectations.
+              </p>
+              <p>
+                I am deeply committed to structure and order, bringing a
+                disciplined "judging" trait to my development workflow. I pride
+                myself on reliability, meeting deadlines, and contributing to
+                well-organized, collaborative team environments where
+                engineering excellence is the priority.
+              </p>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-white/5 flex flex-wrap gap-12">
+              <div>
+                <div className="text-2xl font-bold text-white font-headline">
+                  BANG_ENG
+                </div>
+                <div className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">
+                  Languages
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-white font-headline">
+                  3+ YRS
+                </div>
+                <div className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">
+                  Experience
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
