@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-32 px-8 relative overflow-hidden" id="contact">
+    <section className="py-12 relative overflow-hidden" id="contact">
       <div className="max-w-4xl mx-auto glass-prism p-1">
         <div className="bg-surface-container-lowest p-12 relative overflow-hidden">
           {/* Large background icon decoration */}
@@ -44,11 +44,11 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="relative z-10">
-            <span className="label-md text-secondary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] font-bold">
+            <span className="label-md text-primary tracking-[0.3em] block mb-2 font-headline uppercase text-[10px] font-bold">
               COMMUNICATIONS_PORTAL
             </span>
             <h2 className="text-4xl md:text-5xl text-white font-bold mb-12 font-headline uppercase tracking-tight">
-              KICK_A_FREQUENCY
+              KICK_A_<span className="text-secondary">FREQUENCY</span>
             </h2>
 
             <form ref={form} className="space-y-10" onSubmit={sendEmail}>
@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
               </div>
 
               <button
-                className="w-full py-5 bg-gradient-to-r from-secondary/80 to-secondary text-prism-background font-bold tracking-[0.3em] uppercase hover:shadow-[0_0_40px_rgba(152,0,208,0.3)] active:scale-[0.98] transition-all font-headline text-xs"
+                className="w-full py-5 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold tracking-[0.3em] uppercase hover:shadow-[0_0_40px_rgba(0,238,252,0.4)] active:scale-[0.98] transition-all font-headline text-xs"
                 type="submit"
               >
                 SEND MESSAGE

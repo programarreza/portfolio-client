@@ -1,7 +1,6 @@
-import About from "@/src/components/Home/About";
-
-import Contact from "@/src/components/Home/Contact";
+import About from "../../../components/Home/About";
 import Banner from "../../../components/Home/Banner";
+import Contact from "../../../components/Home/Contact";
 import NetworkActivity from "../../../components/Home/NetworkActivity";
 import Projects from "../../../components/Home/Projects";
 import SkillSection from "../../../components/Home/SkillSection";

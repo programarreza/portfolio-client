@@ -24,7 +24,7 @@ const Banner = () => {
           {/* Square glass background */}
           <div className="absolute inset-0 rounded-full glass-prism glow-cyan animate-pulse" />
 
-          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/30">
+          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/30 mt-4">
             <img
               alt="User Portrait"
               className="w-full h-full object-cover"
