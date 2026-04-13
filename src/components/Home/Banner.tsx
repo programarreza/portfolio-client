@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import DownloadBtn from "./DownloadBtn";
 
 const Banner = () => {
   return (
@@ -54,12 +56,14 @@ const Banner = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
-          <button className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-bold tracking-widest uppercase hover:shadow-[0_0_30px_rgba(0,238,252,0.4)] transition-all active:scale-95 duration-200 font-headline text-xs">
-            INITIATE_SEQUENCE
-          </button>
-          <button className="w-full sm:w-auto px-10 py-4 border border-secondary/40 text-secondary font-bold tracking-widest uppercase hover:bg-secondary/5 transition-all active:scale-95 duration-200 font-headline text-xs">
+          <DownloadBtn />
+          <Link
+            href={"https://github.com/programarreza"}
+            target="_blank"
+            className="w-full sm:w-auto px-10 py-4 border border-secondary/40 text-secondary font-bold tracking-widest uppercase hover:bg-secondary/5 transition-all active:scale-95 duration-200 font-headline text-xs"
+          >
             VIEW_RECORDS
-          </button>
+          </Link>
         </div>
       </div>
 
