@@ -5,6 +5,8 @@ import Link from "next/link";
 import DownloadBtn from "./DownloadBtn";
 
 const Banner = () => {
+  const myImage = "/my-img.png";
+
   return (
     <section
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
@@ -30,7 +32,7 @@ const Banner = () => {
             <img
               alt="User Portrait"
               className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida/ADBb0ug-LuiRA70y5KTdJ9Mv0WsjwKqveO3Lq14uyQ5SWPZk9p2OXkDIWEDaSYqvOClX9CJMJbOgwmT5uZ_jaf0i7y0EyeJsXB2H5m4ojBDjyG3bKvniRHhemi9DF3TUVgfCZft_RFz9mcpF23b3gDrOdkZLLdp0TIYpw-YUJG5SGuuJELnrjUuxG7H7BPZPTGKTR8ITB7znWHRhTheeFOwxai7sTYxUdl1AG10MteWtJi-IkbY-FmWPlHqQyRz9EVqsaInKoALQgDE1STw"
+              src={myImage}
             />
           </div>
 

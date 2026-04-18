@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 
 const About = () => {
+  const myImage = "/my-img.png";
+
   return (
     <section
       className="py-24 bg-[#0A0A0B] text-white relative overflow-hidden"
@@ -29,7 +31,7 @@ const About = () => {
                   <img
                     alt="Md Shafikul Islam Profile"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    src="https://lh3.googleusercontent.com/aida/ADBb0ug-LuiRA70y5KTdJ9Mv0WsjwKqveO3Lq14uyQ5SWPZk9p2OXkDIWEDaSYqvOClX9CJMJbOgwmT5uZ_jaf0i7y0EyeJsXB2H5m4ojBDjyG3bKvniRHhemi9DF3TUVgfCZft_RFz9mcpF23b3gDrOdkZLLdp0TIYpw-YUJG5SGuuJELnrjUuxG7H7BPZPTGKTR8ITB7znWHRhTheeFOwxai7sTYxUdl1AG10MteWtJi-IkbY-FmWPlHqQyRz9EVqsaInKoALQgDE1STw"
+                    src={myImage}
                   />
                 </div>
               </div>
